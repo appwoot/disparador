@@ -4,7 +4,6 @@ import os
 import re
 from dotenv import load_dotenv
 
-# Carregar variáveis de ambiente do arquivo .env
 load_dotenv()
 
 class Config:
@@ -15,8 +14,6 @@ class Config:
 
     if MODE == 'Test':
         # Variáveis fixas para teste
-        AUTHORIZED_DOMAIN = 'app.huchat.com.br'
-        API_ACCESS_TOKEN = 'aSeKZMuuNknEf1yqUsFKPHwF'
         ACCOUNT_ID = '1'
         INBOX_ID = '2'
     else:

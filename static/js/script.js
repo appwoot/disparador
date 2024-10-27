@@ -112,12 +112,10 @@ function populateLabels(labels) {
         option.value = label.title;
         option.classList.add('select-option');
 
-        // Criar um span para a bolinha colorida
         const colorDot = document.createElement('span');
         colorDot.classList.add('color-dot');
         colorDot.style.backgroundColor = label.color || '#000';
 
-        // Criar um span para o texto da label
         const labelText = document.createElement('span');
         labelText.textContent = label.title;
 
@@ -141,7 +139,6 @@ document.getElementById('tag').addEventListener('change', function() {
     checkFormAndFetchContacts();
 });
 
-// Função para verificar o formulário e obter contatos
 function checkFormAndFetchContacts() {
     const inbox = document.getElementById('inbox').value;
     const tag = document.getElementById('tag').value;
@@ -156,16 +153,12 @@ function fetchContacts(labelTitle) {
     fetch(`/api/contacts?account_id=${accountId}&label_title=${encodeURIComponent(labelTitle)}`)
         .then(response => response.json())
         .then(data => {
-            // Removemos a prévia dos contatos
-            // Apenas atualizamos os logs ou outras funcionalidades necessárias
-            // Neste caso, não faremos nada específico
         })
         .catch(error => {
             console.error('Erro ao obter os contatos:', error);
         });
 }
 
-// Listener para o envio do formulário
 document.getElementById('mass-message-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -190,7 +183,6 @@ document.getElementById('mass-message-form').addEventListener('submit', function
         return;
     }
 
-    // Iniciar o envio das mensagens
     startSendingMessages(inbox, tag, message, intervaloMinimo, intervaloMaximo);
 });
 
@@ -297,17 +289,6 @@ function sendMessageToContact(contact, messageContent) {
     });
 }
 
-// Função para atualizar o número de mensagens enviadas
-function updateSentMessages(count) {
-    // Removemos os contadores de "stats"
-    // Você pode adicionar logs ou outras funcionalidades aqui, se desejar
-}
-
-// Função para atualizar a taxa de sucesso
-function updateSuccessRate(sent, total) {
-    // Removemos os contadores de "stats"
-    // Você pode adicionar logs ou outras funcionalidades aqui, se desejar
-}
 
 // Função para adicionar logs
 function appendLog(message) {

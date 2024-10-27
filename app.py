@@ -9,7 +9,6 @@ from functools import wraps
 
 app = Flask(__name__)
 
-# Carregar configurações do arquivo config.py
 app.config.from_object('config.Config')
 
 # Função para obter o api_access_token
@@ -19,14 +18,12 @@ def get_api_access_token(account_id):
     # Lógica para obter o token em produção
     return app.config.get('API_ACCESS_TOKEN')
 
-# Função para obter o account_id
 def get_account_id():
     if app.config.get('MODE') == 'Test':
         return app.config.get('ACCOUNT_ID', '1')
     account_id = request.args.get('account_id')
     return account_id
 
-# Decorador para verificar URL_PASSWORD via parâmetro da URL
 def require_url_password(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -38,7 +35,6 @@ def require_url_password(f):
         return f(*args, **kwargs)
     return decorated_function
 
-# Decorador para verificar o domínio autorizado
 def check_authorized_domain(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -51,7 +47,6 @@ def check_authorized_domain(f):
         return f(*args, **kwargs)
     return decorated_function
 
-# Rota principal
 @app.route('/')
 @require_url_password
 @check_authorized_domain
@@ -66,12 +61,10 @@ def index():
         })
     return render_template('index.html', **context)
 
-# Rota para acesso negado
 @app.route('/acesso_negado')
 def acesso_negado():
     return render_template('acesso_negado.html')
 
-# Rota para obter caixas de entrada e marcadores
 @app.route('/api/inboxes_labels', methods=['GET'])
 def get_inboxes_labels():
     account_id = get_account_id()
