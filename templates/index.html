@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disparador de Mensagens em Massa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script>
+        // Variáveis do modo de teste passadas pelo Flask
+        window.AUTHORIZED_DOMAIN = "{{ authorized_domain }}";
+        window.MODE = "{{ mode }}";
+        {% if mode == 'Test' %}
+        window.ACCOUNT_ID = "{{ account_id }}";
+        window.INBOX_ID = "{{ inbox_id }}";
+        {% endif %}
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>
+                <i class="fas fa-paper-plane"></i>
+                Disparador de Mensagens
+            </h2>
+        </div>
+
+        <div class="main-content">
+            <div class="left-panel">
+                <form id="mass-message-form">
+                    <div class="form-group">
+                        <label for="inbox">
+                            <i class="fas fa-inbox"></i>
+                            Caixa de Entrada
+                        </label>
+                        <select id="inbox" required>
+                            <option value="">Selecione uma caixa de entrada</option>
+                            <!-- As opções serão populadas dinamicamente -->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tag">
+                            <i class="fas fa-tag"></i>
+                            Filtrar por Marcador
+                        </label>
+                        <select id="tag" required>
+                            <option value="">Selecione um marcador</option>
+                            <!-- As opções serão populadas dinamicamente -->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">
+                            <i class="fas fa-comment"></i>
+                            Mensagem
+                        </label>
+                        <textarea id="message" rows="3" placeholder="Digite sua mensagem aqui..." required></textarea>
+                    </div>
+
+                    <!-- Intervalo de tempo mínimo e máximo -->
+                    <div class="form-group">
+                        <label>
+                            <i class="fas fa-clock"></i>
+                            Intervalo entre Envios (segundos)
+                        </label>
+                        <div class="interval-container">
+                            <input type="number" id="intervalo-minimo" placeholder="Mínimo" min="1" required>
+                            <input type="number" id="intervalo-maximo" placeholder="Máximo" min="1" required>
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Iniciar Envio
+                        </button>
+                        <button type="button" class="btn btn-danger" id="cancel-button">
+                            <i class="fas fa-stop"></i>
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+
+                <div class="log-container">
+                    <div class="log-header">
+                        <div class="log-title">
+                            <i class="fas fa-terminal"></i>
+                            Log de Envios
+                        </div>
+                    </div>
+                    <div class="log-area" id="log"></div>
+                    <button class="clear-log-button" onclick="clearLog()">
+                        <i class="fas fa-trash"></i>
+                        Limpar Logs
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

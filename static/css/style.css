@@ -1,0 +1,218 @@
+/* Variáveis de Tema Claro */
+:root {
+    --primary-color: #017FF8;
+    --primary-hover: #0165c8;
+    --success-color: #10B981;
+    --danger-color: #EF4444;
+    --warning-color: #F59E0B;
+    --background-color: #f8fafc;
+    --card-background: #ffffff;
+    --text-color: #1e293b;
+    --border-color: #d1d5db;
+    --input-background: #f9fafb;
+    --shadow-color: rgba(0, 0, 0, 0.05);
+    --glass-background: rgba(255, 255, 255, 0.85);
+}
+
+/* Estilos Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(1, 127, 248, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(1, 127, 248, 0.05) 0%, transparent 20%);
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+    background: var(--glass-background);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.7s ease-out;
+    overflow-y: auto;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1rem;
+}
+
+.header h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.main-content {
+    display: flex;
+    gap: 1rem;
+}
+
+.left-panel {
+    flex: 1;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--input-background);
+    color: var(--text-color);
+    font-size: 0.95rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(1, 127, 248, 0.1);
+}
+
+.interval-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.btn {
+    padding: 0.7rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+    flex: 1;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+.btn-danger {
+    background: var(--danger-color);
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+    transform: translateY(-1px);
+}
+
+.log-container {
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+    position: relative;
+    flex-grow: 1;
+}
+
+.log-area {
+    background: var(--input-background);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1rem;
+    height: 200px;
+    overflow-y: auto;
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+.clear-log-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: var(--background-color);
+    color: var(--text-color);
+    opacity: 0.6;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.clear-log-button:hover {
+    opacity: 1;
+}
+
+/* Estilos para as opções com bolinhas coloridas */
+.select-option {
+    display: flex;
+    align-items: center;
+}
+
+.select-option .color-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+}
