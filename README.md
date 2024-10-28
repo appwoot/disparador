@@ -21,7 +21,7 @@ Este projeto possui um **Modo de Teste** que, quando ativado, usa valores padrã
 
 ## Pré-requisitos
 
-- Python 3.8+
+- Python 3.9+
 - Flask e dependências (instaladas automaticamente com os requisitos)
 - Conta no Chatwoot com acesso API
 - Configuração das variáveis `.env` como descrito abaixo
