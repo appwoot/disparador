@@ -79,3 +79,6 @@ Esse projeto pode funcionar muito bem em conjunto com o **Dashboard App Kanban**
 ![appwoot-kanban](https://github.com/user-attachments/assets/e2392902-836c-44ce-a175-216b9769e1f4)
 
 ![tags-appwoot (1)](https://github.com/user-attachments/assets/c8e9fc34-0f58-4b0e-b90e-bb56e2c6ee48)
+
+## Gere sua Stack para o Portainer aqui
+https://appwoot.com/gerador-de-stack-disparador-free/
