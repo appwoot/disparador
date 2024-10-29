@@ -1,7 +1,6 @@
 # Disparador de Mensagens para Chatwoot
 
-![{124DC7A1-E94F-40B5-9476-904B9D2B3CD2}](https://github.com/user-attachments/assets/ce9c6c6e-c92d-4cf4-b95e-f5c0fad9a34d)
-
+![{469C4475-6ABB-4332-B01D-00351A87502B}](https://github.com/user-attachments/assets/ea8cfe7d-8b33-4dc6-9bf2-456606b14763)
 
 Este é um projeto simplificado de disparo de mensagens em massa, desenvolvido para integração direta com o Chatwoot via Dashboard App e implementado para rodar de forma leve e eficiente. Essa versão é oferecida gratuitamente, permitindo o envio de mensagens para múltiplos contatos de uma vez, definindo um intervalo personalizado entre cada envio.
 
